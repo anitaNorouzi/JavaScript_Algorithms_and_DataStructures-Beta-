@@ -6,6 +6,7 @@ let currentWeapon = 0;
 let fighting;
 let monsterHealth;
 let inventory = ["stick"]; // This is the list of weapons
+let monkey = 0;
 
 // Selecting the button element with the ID 'button1' from the HTML document
 const button1 = document.querySelector('#button1');
