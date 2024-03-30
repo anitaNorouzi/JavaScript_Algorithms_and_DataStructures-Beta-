@@ -1,12 +1,30 @@
 //define the variables that we need
-let xp = 0;
+let xp = 67;
 let health = 9999;
 let gold = 50;
 let currentWeapon = 0;
 let fighting;
 let monsterHealth;
 let inventory = ["stick"]; // This is the list of weapons
-let monkey = 0;
+
+
+let myLevel = xp;
+let totalLevel= 100;
+let fillLevelPercentage = (myLevel / totalLevel) * 100;  // Calculate the fill percentage
+let totalHealth = 100000;
+let fillHealthPercentage = (health / totalHealth) * 100;
+let diamonds = 90;
+let totalDiamonds = 100;
+let fillDiamondsPercentage = (diamonds/ totalDiamonds) * 100;
+let Budget = 10000;
+let totalBudget = 100000;
+let fillBudgetPercentage = (Budget/ totalBudget) * 100;
+
+document.querySelector('#Profile_Details .Level').style.width = fillLevelPercentage + '%'; // Update the width of the fill element based on the percentage
+document.querySelector('#Profile_Details .Health').style.width = fillHealthPercentage + '%';
+document.querySelector('#Profile_Details .Diamonds').style.width = fillDiamondsPercentage + "%";
+document.querySelector('#Profile_Details .Budget').style.width = fillBudgetPercentage+ "%";
+
 
 // Selecting the button element with the ID 'button1' from the HTML document
 const button1 = document.querySelector('#button1');
@@ -21,7 +39,8 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
-
+const profile_Details = document.querySelector("#Profile_Details");
+let Leveltext = document.getElementById("Leveltext");
 // Array containing different weapons, each represented by an object with properties: name and power
 const weapons = [
   { name: 'stick', power: 5 },
@@ -113,8 +132,22 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 button4.onclick = seeProfile;
 
+function updateLevel(){
+  if(xp < 30){
+    Leveltext.innerText = "Rookie";
+  }
+  else if(xp < 70 && xp > 29){
+    Leveltext.innerText = "Veteran";
+  }
+  else if(xp>=70){
+    Leveltext.innerText = "Legend";
+    
+  }
+}
 function update(location) {
   monsterStats.style.display = "none";
+  profile_Details.style.display = 'none';
+  Leveltext.style.display = 'none';
   button1.innerText = location["button text"][0];
   button2.innerText = location["button text"][1];
   button3.innerText = location["button text"][2];
@@ -139,6 +172,9 @@ function goCave() {
 }
 function seeProfile(){
   update(locations[8]);
+  updateLevel();
+  profile_Details.style.display = "inline";
+  Leveltext.style.display = "block";
 }
 
 function buyHealth() {
@@ -157,10 +193,10 @@ function buyWeapon() {
     if (gold >= 30) {
       gold -= 30;
       currentWeapon++;
-      goldText.innerText = gold;
+      goldText.innerText = gold;  //update gold value in html
       let newWeapon = weapons[currentWeapon].name;
       text.innerText = "You now have a " + newWeapon + ".";
-      inventory.push(newWeapon);
+      inventory.push(newWeapon);  //add new weapon to inventory
       text.innerText += " In your inventory you have: " + inventory;
     } else {
       text.innerText = "You do not have enough gold to buy a weapon.";
@@ -202,7 +238,7 @@ function fightDragon() {
 function goFight() {
   update(locations[3]);
   monsterHealth = monsters[fighting].health;
- // monsterStats.style.display = "block";
+  monsterStats.style.display = "block";
   monsterName.innerText = monsters[fighting].name;
   monsterHealthText.innerText = monsterHealth;
 }

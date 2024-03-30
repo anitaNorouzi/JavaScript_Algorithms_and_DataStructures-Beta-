@@ -1,7 +1,7 @@
 body {
     background-color: #0a0a23;
   }
-  
+
   #text {
     background-color: #0a0a23;
     color: #ffffff;
@@ -9,10 +9,10 @@ body {
   }
   
   #game {
-    max-width: 500px;
+    max-width: 600px;
     max-height: 400px;
-    min-height: 400px;
-    background-color: #ffffff;
+    min-height: 50px;
+    background-color: #990000;
     color: #ffffff;
     margin: 30px auto 0px;
     padding: 10px;
@@ -30,7 +30,7 @@ body {
     border: 1px solid #0a0a23;
     padding: 5px;
     color: #ffffff;
-    background-color: #c70d0d;
+    background-color: #fbff00;
   }
   
   .stat {
@@ -44,3 +44,61 @@ body {
     background-image: linear-gradient(#fecc4c, #ffac33);
     border: 3px solid #feac32;
   }
+.column {
+    flex: 1;
+    padding: 10px;
+  }
+.flex-container {
+    display: flex;
+  }
+#Profile_Details{
+  display: none;
+  background-color: #ffffff;
+  height: 200px;
+  width: 587px;
+  border: #0a0a23 solid 2px;
+  margin: 7px 5px;
+  overflow: hidden;
+  
+}
+
+.bar{
+  background-color: #ffffff;
+  width: 200px;
+  height: 20px;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+  list-style-type: none;
+  border: black solid 2px;
+}
+
+
+/*
+
+#Profile_Details {
+  display: flex;
+  flex-direction: column;
+}
+
+.attribute-capsule {
+  margin-bottom: 10px;
+}
+*/
+
+
+.bar span {
+  display: block;
+  height: 100%; /* Fill the entire height of the capsule */
+  background-color: #4caf50; /* Fill color */
+}
+
+label{
+  color: black;
+  padding: 8px;
+  margin-top: 2px;
+  font-size: small;
+}
+#Leveltext{
+  display: none;
+}

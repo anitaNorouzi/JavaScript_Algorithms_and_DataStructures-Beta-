@@ -6,18 +6,22 @@
     <title>RPG - Dragon Repeller</title>
   </head>
   <body>
+
+ 
     <div id="game">
       <div id="stats">
-        <span class="stat">XP: <strong><span id="xpText">0</span></strong></span>
+        <span class="stat">XP: <strong><span id="xpText">67</span></strong></span>
         <span class="stat">Health: <strong><span id="healthText">9999</span></strong></span>
         <span class="stat">Gold: <strong><span id="goldText">50</span></strong></span>
       </div>
+
       <div id="controls">
         <button id="button1">Go to store</button>
         <button id="button2">Go to cave</button>
         <button id="button3">Fight dragon</button>
         <button id="button4">Profile!</button>
       </div>
+
       <div id="monsterStats">
         <span class="stat">Monster Name: <strong><span id="monsterName"></span></strong></span>
         <span class="stat">Health: <strong><span id="monsterHealth"></span></strong></span>
@@ -25,7 +29,28 @@
       <div id="text">
         Welcome to Dragon Repeller. You must defeat the dragon that is preventing people from leaving the town. You are in the town square. Where do you want to go? Use the buttons above.
       </div>
+    <div class="flex-container">
+
+      <div id="Profile_Details" class="column">
+        <label for="Level">XP: </label>
+        <li class="bar"><span class="Level"></span></li>
+        <label for="Health">Health: </label>
+        <li class="bar"><span class="Health"></span></li>
+        <label for="Diamonds">Diamonds: </label>
+        <li class="bar"><span class="Diamonds"></span></li>
+        <label for="Budget">My Budget: </label>
+        <li class="bar"><span class="Budget"></span></li>
+      </div>
+
+      <div id="character_image" class="column">
+        <h3 id="Leveltext">Rookie</h3>
+
+      </div>
+    </div> 
+
     </div>
+    
+
     <script src="CodeCamp_Game.js"></script>
   </body>
 </html>
